@@ -1,0 +1,42 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/Recursos/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <form method="get">
+            <p>
+                Nome: <input type="text" name=" Nome" />
+            </p>
+            <p>
+                Telefone: <input type="text" name=" Telefone" />
+            </p>
+            <input type="submit" value="Enviar" />
+        </form>
+    </div>
+    <script src="~/Recursos/script/site.js"></script>
+    @{ 
+        string
+            Nome = string.Empty,
+            Telefone = string.Empty;
+
+
+        if(Request.QueryString.Keys.Count> 0 || Request.Form.Keys.Count>0)
+        {
+            Response.Write(Request.QueryString["Nome"] + "Nome recebido");
+            Response.Write(Request.QueryString["Telefone"] + "Telefone recebido");
+
+        }
+    <div>
+        <p>Nome Recebido: @Nome</p>
+        <p>Telefone Recebido: @Telefone</p>
+    </div>
+
+    }
+</body>
+</html>
